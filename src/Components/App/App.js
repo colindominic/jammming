@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {searchResults: [{
+      name: '',
+      artist: '',
+      album: ''
+    }]};
+  }
+
   render() {
     return (
       <div>
@@ -9,7 +19,7 @@ class App extends Component {
         <div className="App">
           {/*<!-- Add a SearchBar component -->*/}
           <div className="App-playlist">
-          {/*<!-- Add a SearchResults component -->*/}
+          <SearchResults searchResults={this.state.searchResults}/>
           {/*<!-- Add a Playlist component -->*/}
           </div>
         </div>

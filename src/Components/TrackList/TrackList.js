@@ -6,7 +6,9 @@ class TrackList extends React.Component {
   render() {
     return (
       <div className="TrackList">
-        {/*<!-- You will add a map method that renders a set of Track components  -->*/}
+        this.props.tracks.map(track => {
+          <Track key=track.id name={this.props.track.name} artist={this.props.track.artist} album={this.props.track.album}/>
+        })
       </div>
     );
   }
