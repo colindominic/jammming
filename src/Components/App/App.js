@@ -1,22 +1,42 @@
 import React, { Component } from 'react';
 import './App.css';
+import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {searchResults: [{
-        name: '',
-        artist: '',
-        album: ''
-      }],
-      playlistName: '',
+        id: 1,
+        name: 'name1',
+        artist: 'artist1',
+        album: 'album1'
+      },
+      {
+          id: 2,
+          name: 'name2',
+          artist: 'artist2',
+          album: 'album2'
+        }],
+      playlistName: 'playlist1',
       playlistTracks: [{
-          name: '',
-          artist: '',
-          album: ''
-        }]
+          id: 'pl_1',
+          name: 'pl_name1',
+          artist: 'pl_artist1',
+          album: 'pl_album1'
+        },
+        {
+            id: 'pl_2',
+            name: 'pl_name2',
+            artist: 'pl_artist2',
+            album: 'pl_album2'
+          }]
     };
+  }
+
+  addTrack(track) {
+
   }
 
   render() {
