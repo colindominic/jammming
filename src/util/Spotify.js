@@ -1,5 +1,7 @@
 import React from 'react';
 
+let client_id = process.env.SPOTIFY_SECRET;
+let redirect_uri = 'http://localhost:3000/';
 let accessToken;
 let expiresIn;
 
@@ -13,6 +15,9 @@ let Spotify = {
 
       window.setTimeout(() => accessToken = '', expiresIn * 1000);
       window.history.pushState('Access Token', null, '/');
+    } else {
+      let url = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirect_uri}`;
+        window.location = url;
     }
   }
 }
