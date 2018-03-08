@@ -19,7 +19,21 @@ let Spotify = {
       let url = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirect_uri}`;
         window.location = url;
     }
-  }
-}
+  },
 
-export default Spotify;
+  search(term) {
+    fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+      headers: {Authorization: `Bearer ${accessToken}`}
+    }).then(
+      response => {
+	       if (response.ok) {
+           return response.json();
+         }
+       }).then(jsonResponse => {
+         console.log(jsonResponse);
+       });
+  }
+
+};
+
+export default {Spotify};
