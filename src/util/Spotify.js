@@ -16,6 +16,7 @@ let Spotify = {
       expiresIn = expiresInMatch[1];
       window.setTimeout(() => accessToken = '', expiresIn * 1000);
       window.history.pushState('Access Token', null, '/');
+      return accessToken;
     } else {
         window.location = url;
     }
