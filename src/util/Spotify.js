@@ -61,10 +61,8 @@ let Spotify = {
            return response.json();
          }
       }).then(jsonResponse => {
-        return userId = jsonResponse.id;
-      }).then(() => {
-
-        fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+        userId = jsonResponse.id;
+        return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
           headers: headers,
           method: 'POST',
           data: JSON.stringify({name: playlistName})
@@ -76,7 +74,7 @@ let Spotify = {
           return playlistId = jsonResponse.id;
         }).then(() => {
 
-          fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
+          return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
             headers: headers,
             method: 'POST',
             data: JSON.stringify({uris: trackURIs})
