@@ -29,10 +29,8 @@ class App extends Component {
         return;
       }
     });
-        tracks.push(track);
-        this.setState({playlistTracks: tracks});
-
-
+    tracks.push(track);
+    this.setState({playlistTracks: tracks});
   }
 
   removeTrack(track) {
@@ -56,7 +54,7 @@ class App extends Component {
 
   savePlaylist() {
     let trackURIs = [];
-    this.state.searchResults.map(result => {
+    this.state.playlistTracks.map(result => {
       trackURIs.push(result.uri);
     });
     Spotify.savePlaylist(this.state.playlistName, trackURIs);
