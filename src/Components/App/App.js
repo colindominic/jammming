@@ -27,16 +27,19 @@ class App extends Component {
     tracks.find(playlistTrack => {
       if (playlistTrack.id === track.id) {
         return;
-      } else {
-        tracks.push(track);
-        this.setState({playlistTracks: tracks});
       }
     });
+        tracks.push(track);
+        this.setState({playlistTracks: tracks});
+
+
   }
 
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    tracks.find(playlistTrack => {
+    let playlistUpdate = tracks.filter(playlistTrack => playlistTrack.id !== track.id);
+    this.setState({playlistTracks: playlistUpdate});
+    /*tracks.find(playlistTrack => {
       if (playlistTrack.id === track.id) {
         let trackIndex = tracks.indexOf(playlistTrack);
         tracks.splice(trackIndex, 1);
@@ -44,7 +47,7 @@ class App extends Component {
       } else {
         return;
       }
-    });
+    });*/
   }
 
   updatePlaylistName(name) {
