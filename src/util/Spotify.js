@@ -1,5 +1,5 @@
 let client_id = '7df0ccfd354142dfa52d811af670d95d';
-let redirect_uri = 'http://localhost:3000/';
+let redirect_uri = 'http://colin_jammming.surge.sh/';
 let url = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirect_uri}`;
 let accessToken;
 let expiresIn;
