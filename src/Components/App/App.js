@@ -5,6 +5,8 @@ import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
 import Spotify from '../../util/Spotify';
 
+Spotify.getAccessToken();
+
 class App extends Component {
   constructor(props) {
     super(props);
