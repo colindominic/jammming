@@ -26,11 +26,9 @@ class App extends Component {
 
   addTrack(track) {
     let tracks = this.state.playlistTracks;
-    tracks.find(playlistTrack => {
-      if (playlistTrack.id === track.id) {
-        return;
-      }
-    });
+    if (tracks.find(playlistTrack => playlistTrack.id === track.id)) {
+      return;
+    }
     tracks.push(track);
     this.setState({playlistTracks: tracks});
   }
@@ -68,9 +66,8 @@ class App extends Component {
   }
 
   search(term) {
-    Spotify.search(term).then(tracks => {
-      this.setState({searchResults: tracks})
-    });
+    Spotify.search(term).then(results =>
+      this.setState({searchResults: results}));
   }
 
   render() {
