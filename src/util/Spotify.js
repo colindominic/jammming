@@ -82,7 +82,6 @@ let Spotify = {
      if (!playlistName || !trackURIs.length) {
        return;
      }
-     //const userUrl = 'https://api.spotify.com/v1/me';
      const headers = {
         Authorization: `Bearer ${accessToken}`
       };
@@ -95,7 +94,6 @@ let Spotify = {
       ).then(jsonResponse => userId = jsonResponse.id
       ).then(() => {
 
-        //const createPlaylistUrl = `https://api.spotify.com/v1/users/${userId}/playlists`;
         fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
             method: 'POST',
             headers: headers,
@@ -105,7 +103,6 @@ let Spotify = {
         }).then(response => response.json()
       ).then(jsonResponse => playlistId = jsonResponse.id
       ).then(() => {
-      //const addPlaylistTracksUrl = `https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`;
 
         fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
           method: 'POST',
